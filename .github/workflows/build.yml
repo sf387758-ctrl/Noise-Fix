@@ -1,0 +1,16 @@
+name: Build VST3
+on: [push]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          cmake -B build
+          cmake --build build --config Release
+      - name: Upload VST3
+        uses: actions/upload-artifact@v4
+        with:
+          name: Noise-Fix-VST3
+          path: build/**/Noise-Fix.vst3
