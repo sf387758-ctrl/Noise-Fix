@@ -5,7 +5,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build
+      - name: Build VST3
         run: |
           cmake -B build
           cmake --build build --config Release
@@ -13,4 +13,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Noise-Fix-VST3
-          path: build/**/Noise-Fix.vst3
+          path: |
+            build/**/VST3/
+            build/**/Standalone/
