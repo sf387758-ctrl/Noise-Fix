@@ -1,12 +1,10 @@
 #pragma once
-#include <JuceHeader.h>
 #include "PluginProcessor.h"
-class NoiseFixAudioProcessorEditor : public juce::AudioProcessorEditor {
+class NoiseFixEditor : public juce::AudioProcessorEditor {
 public:
-    NoiseFixAudioProcessorEditor (NoiseFixAudioProcessor&);
-    ~NoiseFixAudioProcessorEditor() override {}
-    void paint (juce::Graphics&) override {}
-    void resized() override {}
+    NoiseFixEditor(NoiseFixProcessor&);
+    void paint(juce::Graphics&) override;
+    void resized() override;
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (NoiseFixAudioProcessorEditor)
+    NoiseFixProcessor& processor;
 };
